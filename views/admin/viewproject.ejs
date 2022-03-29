@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+
+        <!--Main layout-->
+        <main style="margin-top: 58px">
+
+            <section class="team text-center py-5">
+                <div class="container">
+                    <div class="header my-5">
+                        <h1>Meet our Team </h1>
+                    </div>
+                    <div class="row">
+                        <% for(i=0; i<memberpersonal.length; i++) { %>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="img-block mb-5">
+                                    <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t4.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
+                                    <div class="content mt-2">
+                                        <h4>
+                                            <%= memberpersonal[i].memberName  %>
+                                        </h4>
+                                        <p class="text-muted">
+                                            <%= memberpersonal[i].position  %>
+                                        </p>
+                                        <a href="/admin/personal/<%= memberpersonal[i].id  %>" class="btn btn-secondary">View More</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <% } %>
+                                <!-- <div class="col-md-6 col-lg-3 ">
+                            <div class="img-block mb-5">
+                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t2.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
+                                <div class="content mt-2">
+                                    <h4>Syndia Lee</h4>
+                                    <p class="text-muted">UI & UX Developer</p>
+                                    <a href="" class="btn btn-secondary">View More</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="img-block mb-5">
+                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t1.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
+                                <div class="content mt-2">
+                                    <h4>Noel Flantier</h4>
+                                    <p class="text-muted">Backend Developer</p>
+                                    <a href="" class="btn btn-secondary">View More</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="img-block mb-5">
+                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t3.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
+                                <div class="content mt-2">
+                                    <h4>Bobby Doe</h4>
+                                    <p class="text-muted">Street Artist</p>
+                                    <a href="" class="btn btn-secondary">View More</a>
+
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- MDB -->
+        <%- include("../include/footer.ejs") %>
+
+
+
+</body>
+
+</html>

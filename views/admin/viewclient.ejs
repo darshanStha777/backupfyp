@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+        <style>
+            span {
+                font-weight: bold;
+            }
+            
+            table {
+                border-collapse: separate;
+                border-spacing: 0 20px;
+            }
+            
+            table tr {
+                padding: 10px !important;
+                border-radius: 10px;
+                background-color: white;
+            }
+            
+            table tr:first-child th:first-child,
+            table tr:first-child td:first-child {
+                border-top-left-radius: 10px;
+            }
+            
+            table tr:first-child th:last-child,
+            table tr:first-child td:last-child {
+                border-top-right-radius: 10px;
+            }
+            
+            table tr:last-child th:first-child,
+            table tr:last-child td:first-child {
+                border-bottom-left-radius: 10px;
+            }
+            
+            table tr:last-child th:last-child,
+            table tr:last-child td:last-child {
+                border-bottom-right-radius: 10px;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+        <!--Main layout-->
+        <main style="margin-top: 108px; margin-bottom: 75px;">
+            <section class="container">
+                <div class="row mt-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <h4>Customer List</h4>
+
+                    </div>
+
+
+
+                </div>
+                <div class="row p-4  " style="overflow-x: scroll;">
+                    <table class="table table-borderless clienttable table-hover" style="border: none !important;">
+                        <thead>
+                            <tr style="background-color:black !important; color: white !important;">
+                                <th>S.N.</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Contact Number</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tablebody">
+                            <% for(i=0; i<allclient.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <span><%= i+1 %></span>
+
+                                    </td>
+                                    <td>
+                                        <span><%= allclient[i].clientName %></span>
+                                    </td>
+                                    <td><span><%= allclient[i].clientEmail %></span></td>
+                                    <td><span><%= allclient[i].clientPhone %></span></td>
+                                    <td><span><%= allclient[i].clientAddress %></span></td>
+
+                                    <td><span class="badge bg-primary"><%= allclient[i].clientgender %></span></td>
+                                    <td>
+                                        <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-h"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
+                                            <li><a class="dropdown-item text-primary" href="#"><i class="fas fa-edit"></i> Edit </a></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <!-- <tr>
+                                <td>
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (33).jpg" class="rounded-circle mx-2" height="35" alt="" loading="lazy" /> <span>Bibhav Karki</span>
+                                </td>
+                                <td><span>BibhavKarki@gmail.com</span></td>
+                                <td><span>9846512796</span></td>
+                                <td><span class="badge bg-primary">Male</span></td>
+                                <td>
+                                    <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
+                                        <li><a class="dropdown-item text-primary" href="#"><i class="fas fa-edit"></i> Edit </a></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (32).jpg" class="rounded-circle mx-2" height="35" alt="" loading="lazy" /> <span>Manxil Katwal</span>
+                                </td>
+                                <td><span>Manxilkatwal@gmail.com</span></td>
+                                <td><span>9846512796</span></td>
+                                <td><span class="badge bg-danger">FeMale</span></td>
+                                <td>
+                                    <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
+                                        <li><a class="dropdown-item text-primary" href="#"><i class="fas fa-edit"></i> Edit </a></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                                    </ul>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        <!--Main layout-->
+
+
+        <%- include("../include/footer.ejs") %>
+            <script>
+                $('#clickme').on('click', function() {
+                    Swal.fire(
+                        'The Internet?',
+                        'That thing is still around?',
+                        'question'
+                    )
+
+                })
+            </script>
+
+
+
+            <!-- MDB -->
+
+
+</body>
+
+</html>

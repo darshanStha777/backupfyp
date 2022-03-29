@@ -1,0 +1,153 @@
+<!--Main Navigation-->
+
+<header>
+
+
+
+    <!-- Navbar -->
+    <!--Main Navigation-->
+    <header>
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white" style="overflow-x: scroll;">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-1 mt-4">
+
+                    <a href="/admin/" class="list-group-item list-group-item-action  py-3 ripple border-danger mt-3" data-mdb-ripple-color="primary" aria-current="true" data-mdb-ripple-duration="800ms">
+                        <i class="fas fa-columns text-primary  me-3"></i><span>Main dashboard</span>
+                    </a>
+
+
+
+                    <div class="list-group-item  p-0 mt-3 border-0">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item mb-2">
+                                <h2 class="accordion-header m-0 p-0 " id="flush-headingteam">
+                                    <button class="accordion-button collapsed  ps-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseteam" aria-expanded="false" aria-controls="flush-collapseOne"><i class="fas fa-user-friends text-warning  fa-fw me-3"></i><span>Team </span></button>
+                                </h2>
+                                <div id="flush-collapseteam" class="accordion-collapse collapse  p-0 m-0" aria-labelledby="flush-headingteam" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body m-0 p-0">
+                                        <div class="mt-2  ms-5">
+                                            <a href="/admin/viewteam" class="list-group-item list-group-item-action border-0 py-2 mx-auto ripple " data-mdb-ripple-color="warning" aria-current="true" data-mdb-ripple-duration="800ms">
+                                                <span> View Team </span>
+                                            </a>
+                                            <a href="/admin/addteam" class="list-group-item list-group-item-action border-0 py-2 mt-2 border-1 mx-auto ripple " data-mdb-ripple-color="danger" aria-current="true" data-mdb-ripple-duration="800ms">
+                                                <span> Add Team </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-2">
+                                <h2 class="accordion-header" id="flush-headingproject">
+                                    <button class="accordion-button collapsed ps-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseproject" aria-expanded="false" aria-controls="flush-collapseTwo"><i class="fas fa-tasks fa-fw me-3 text-info"></i><span>Project </span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseproject" class="accordion-collapse collapse m-0 p-0" aria-labelledby="flush-headingproject" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body m-0 p-0">
+                                        <div class="mt-2  ms-5">
+                                            <a href="/admin/viewproject" class="list-group-item list-group-item-action border-0 py-2 mx-auto ripple " data-mdb-ripple-color="warning" aria-current="true" data-mdb-ripple-duration="800ms">
+                                                <span> View Project </span>
+                                            </a>
+                                            <a href="/admin/addproject" class="list-group-item list-group-item-action border-0 py-2 mt-2 border-1 mx-auto ripple " data-mdb-ripple-color="danger" aria-current="true" data-mdb-ripple-duration="800ms">
+                                                <span> Add Project </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-2">
+                                <h2 class="accordion-header" id="flush-lead">
+                                    <button class="accordion-button collapsed ps-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseclient" aria-expanded="false" aria-controls="flush-collapseThree"><i class="fas fa-user-tie text-secondary fa-fw me-3"></i><span>Client</span></button>
+                                </h2>
+                                <div id="flush-collapseclient" class="accordion-collapse collapse m-0 p-0" aria-labelledby="flush-lead" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body m-0 p-0">
+                                        <div class="mt-2  ms-5">
+                                            <a href="/admin/addclient" class="list-group-item list-group-item-action border-0 py-2 mx-auto ripple " data-mdb-ripple-color="warning" aria-current="true" data-mdb-ripple-duration="800ms">
+                                                <span> Add Client </span>
+                                            </a>
+                                            <a href="/admin/viewclient" class="list-group-item list-group-item-action border-0 py-2 mx-auto ripple " data-mdb-ripple-color="warning" aria-current="true" data-mdb-ripple-duration="800ms">
+                                                <span> View Client </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar -->
+
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">
+                    <img src="/vendor/image/team-management--removebg-preview.png" height="50" alt="" loading="lazy" />
+                </a>
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <!-- Search form -->
+                    <form class="d-none d-md-flex input-group w-auto my-auto">
+                        <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search ' style="min-width: 225px" />
+                        <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+                    </form>
+
+                    <!-- Notification dropdown -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Team Notification</a></li>
+                            <li><a class="dropdown-item" href="#">Project Notification</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else</a>
+                            </li>
+                        </ul> -->
+                    <!-- </li> -->
+                    <li class="nav-item dropdown">
+                        <div class="dropdown mt-1">
+                            <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Setting</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Avatar -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- Container wrapper -->
+
+        </nav>
+        <!-- Navbar -->
+
+    </header>
+
+
+</header>
+<!--Main Navigation-->

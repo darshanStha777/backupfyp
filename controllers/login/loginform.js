@@ -9,12 +9,15 @@ exports.postloginpage = async(req, res, next) => {
         return
     }
     if (userType === "client") {
-        res.render("client/index")
+        const clientdetails = await req.user
+        console.log(req.user)
+        res.redirect('client/');
         return
     } else {
         const userdetails = await req.user
         console.log(userdetails)
-        res.render("employee/index", { userdetails })
+        res.redirect('team/')
+        res.render("employee/assignedproject", { userdetails })
         return
     }
 }

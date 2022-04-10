@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const newteamember = sequelize.define('registernewTeam', {
+    const newteamember = sequelize.define('team', {
         memberName: {
             type: DataTypes.STRING
         },

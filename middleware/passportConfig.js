@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local')
 const db = require('../models')
 const RegisterNewTeamMember = db.registernewTeamMember
 const admindetails = db.admin
-const clientdetails = db.client
+const clientdetails = db.addnewclient
 
 
 exports.initializingPassport = (passport) => {
@@ -82,7 +82,7 @@ exports.initializingPassport = (passport) => {
         }
         if (userType === "client") {
             try {
-                const user = await client.findByPk(id);
+                const user = await clientdetails.findByPk(id);
                 done(null, user);
             } catch (err) {
                 done(err, false)

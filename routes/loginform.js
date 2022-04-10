@@ -10,7 +10,7 @@ router.get('/login', loginController.getloginpage);
 
 
 router.post('/postlogin', passport.authenticate("local", {
-    failureRedirect: "/register",
+    failureRedirect: '/login',
     session: true
 }), loginController.postloginpage);
 module.exports = router

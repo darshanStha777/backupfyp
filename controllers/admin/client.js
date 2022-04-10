@@ -16,17 +16,17 @@ exports.getaddclientpage = (req, res, next) => {
 
 exports.postaddclientpage = async(req, res, next) => {
     try {
-        const alreadyclient = await AddNewClient.findOne({ where: { clientEmail: req.body.clientEmail } })
+        const alreadyclient = await AddNewClient.findOne({ where: { email: req.body.email } })
         if (alreadyclient) {
             res.render('admin/addclient', { newclient: 'alreadyclient' })
         } else {
             const newclientdetails = {
                 clientName: req.body.clientName,
                 clientAddress: req.body.clientAddress,
-                clientEmail: req.body.clientEmail,
+                email: req.body.email,
                 clientPhone: req.body.clientPhone,
                 clientgender: req.body.clientgender,
-                clientpassword: req.body.clientpassword,
+                password: req.body.clientpassword,
             }
             const newclient = await AddNewClient.create(newclientdetails)
             try {

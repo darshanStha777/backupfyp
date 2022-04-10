@@ -34,10 +34,16 @@ db.sequelize = sequelize
 // In Below Model haru xa jun mero app chahine
 db.registernewTeamMember = require('./registernewTeamMember.js')(sequelize, DataTypes)
 db.admin = require('./admindetails.js')(sequelize, DataTypes)
-db.client = require('./client.js')(sequelize, DataTypes)
-
-
+db.proejct = require('./project/addproject.js')(sequelize, DataTypes)
 db.addnewclient = require('./client/newclient.js')(sequelize, DataTypes)
+db.addmessage = require('./client/messagemodel')(sequelize, DataTypes)
+
+db.registernewTeamMember.hasMany(db.proejct);
+db.addnewclient.hasMany(db.proejct);
+
+db.proejct.belongsTo(db.registernewTeamMember);
+db.proejct.belongsTo(db.addnewclient);
+
 
 
 db.sequelize.sync({ force: false })

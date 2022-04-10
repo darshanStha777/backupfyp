@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const newteamember = sequelize.define('AddNewProject', {
+    const newporject = sequelize.define('project', {
         projectName: {
             type: DataTypes.STRING
         },
@@ -7,11 +7,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         projectprice: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         },
         priceAdvance: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         },
+        pricedue: {
+            type: DataTypes.INTEGER
+        },
+
         projectfile: {
             type: DataTypes.STRING
         },
@@ -21,10 +25,26 @@ module.exports = (sequelize, DataTypes) => {
         projectenddate: {
             type: DataTypes.STRING
         },
+
+        teamId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'teams',
+                key: 'id'
+            }
+        },
+        clientId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'clients',
+                key: 'id'
+            }
+        }
+
     }, {
-        createAt: false,
+        createdAt: false,
         updatedAt: false
     })
-    return newteamember
+    return newporject
 
 }

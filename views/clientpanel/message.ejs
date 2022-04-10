@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("../include/head.ejs") %>
+        <style>
+            main {
+                padding-left: 0px !important;
+            }
+        </style>
+</head>
+
+<body>
+
+    <header style="overflow-x: scroll;">
+
+
+
+        <!-- Navbar -->
+        <!--Main Navigation-->
+        <header>
+            <!-- Navbar -->
+            <nav id="main-navbar" class=" row navbar navbar-expand-lg navbar-light bg-white fixed-top">
+                <!-- Container wrapper -->
+                <div class="container-fluid ">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="#">
+                        <img src="/vendor/image/team-management--removebg-preview.png" height="50" alt="" loading="lazy" />
+                    </a>
+
+                    <!-- Right links -->
+                    <ul class="navbar-nav ms-auto d-flex flex-row">
+
+                        <!-- Search form -->
+                        <form class="d-none d-md-flex input-group w-auto my-auto">
+
+                            <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search ' style="min-width: 225px" />
+                            <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+                        </form>
+
+                        <li class="nav-item dropdown">
+                            <div class="dropdown mt-1">
+                                <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </nav>
+            <!-- Navbar -->
+
+
+        </header>
+
+
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main style="margin-top: 60px " class=" ">
+        <div class="container-fluid mt-1 navbar-light bg-white">
+            <div class="row d-flex justify-content-around">
+                <div class="col-md-4 d-flex  justify-content-center ">
+                    <div>
+                        <a href="/client/" class="nav-item nav-link text-dark "> <i class="fas fa-tasks"></i> Project </a>
+                    </div>
+                    <div>
+                        <a href="/client/paymentpage" class="nav-item nav-link text-dark "> <i class="fas fa-credit-card"></i> Payment</a>
+                    </div>
+                    <div>
+                        <a href="/client/message" class="nav-item nav-link text-primary "> <i class="fas fa-envelope"></i> Message</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--Section: Minimal statistics cards-->
+        <!--Section: Minimal statistics cards-->
+
+        <!--Section: Minimal statistics cards-->
+
+        <div class="container-fluid pt-4  ">
+            <!-- Section: Main chart -->
+            <section class="team  py-1">
+                <div class="container">
+                    <div class="header my-1 text-center">
+                        <h1>Drop a Message </h1>
+                    </div>
+                    <div class="row  d-flex  justify-content-around ">
+                        <div class="col-md-4 border border-dark">
+                            <form class="m-2" action="/client/messagedetails" method="post">
+                                <div class="form-group m-1">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="messageemail" aria-describedby="emailHelp" placeholder="Enter email">
+                                </div>
+                                <div class="form-group m-1">
+                                    <label for="phonenumber">Phone number</label>
+                                    <input type="text" class="form-control" id="phonenumber" name="messagephone" placeholder="Enter Phone Number">
+                                </div>
+                                <div class="form-group m-1">
+                                    <label for="message">Messages</label>
+                                    <textarea class="form-control" id="message" rows="3" name="message"></textarea>
+                                </div>
+                                <div class="text-center m-3">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Main chart -->
+        </div>
+    </main>
+    <!-- MDB -->
+    <%- include("../include/footer.ejs") %>
+
+
+
+</body>
+
+</html>

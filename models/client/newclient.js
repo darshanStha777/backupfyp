@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-    const newclientmember = sequelize.define('NewClient', {
+    const newclientmember = sequelize.define('client', {
         clientName: {
             type: DataTypes.STRING
         },
         clientAddress: {
             type: DataTypes.STRING
         },
-        clientEmail: {
+        email: {
             type: DataTypes.STRING
         },
-        clientpassword: {
+        password: {
             type: DataTypes.STRING
         },
         clientPhone: {

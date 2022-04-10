@@ -20,21 +20,23 @@ const { initializingPassport, isAuthenticated } = require('../middleware/passpor
 
 
 const indexadminController = require('../controllers/admin/indexadmin.js')
-router.get('/', isAuthenticated, indexadminController.getindexpage);
+router.get('/', indexadminController.getindexpage);
 
 
 const teamController = require('../controllers/admin/team.js')
-router.get('/addteam', isAuthenticated, teamController.getaddteampage);
-router.get('/viewteam', isAuthenticated, teamController.getviewteampage);
+router.get('/addteam', teamController.getaddteampage);
+router.get('/viewteam', teamController.getviewteampage);
 
 
 router.post('/addnewEmployee', upload.single('teamaddimage'), teamController.postaddteampage)
 
 const projectController = require('../controllers/admin/project.js')
-router.get('/addproject', isAuthenticated, projectController.getaddprojectpage);
-router.get('/viewproject', isAuthenticated, projectController.getviewprojectpage);
+router.get('/addproject', projectController.getaddprojectpage);
+router.get('/viewproject', projectController.getviewprojectpage);
+router.post('/addprojectdetails', projectController.postaddproject)
 
-
+router.get('/assignproject/:id', projectController.assignprojectpage)
+router.post('/assignpuser/:id', projectController.postassignprojectpage)
 
 //clinet
 const clientController = require('../controllers/admin/client.js')
@@ -43,7 +45,8 @@ router.get('/viewclient', clientController.getviewclientpage);
 
 router.post('/addnewclient', clientController.postaddclientpage)
 
-
+const messageController = require('../controllers/admin/message.js')
+router.get('/message', messageController.getmessagepage)
 
 
 module.exports = router

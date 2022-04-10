@@ -17,7 +17,7 @@
         <!--Main layout-->
         <main style="margin-top: 108px; margin-bottom: 75px;">
             <section class="container-fluid">
-                <form action="/addprojectdetails" method="POST">
+                <form action="/admin/addprojectdetails" method="POST">
                     <div class="row justify-content-around  p-3">
                         <div class="col-md-6 mb-4 ">
                             <!-- Card -->
@@ -83,39 +83,19 @@
                                 <!-- Card content -->
                                 <div class="card-body">
                                     <div class="row  justify-content-around ">
-
-                                        <div class=" col-md-6 form-group mb-4">
-
-                                            <input type="text" name="clientName" class="form-control p-2  " placeholder="Client name">
-                                        </div>
-                                        <div class="col-md-6 form-group mb-4 ">
-                                            <input type="text" name="clientAddress" class="form-control p-2" placeholder="Address">
-                                        </div>
-                                    </div>
-                                    <div class="row  justify-content-around  ">
-
-                                        <div class=" col-md-6 form-group mb-4 ">
-                                            <input type="email" name="clientEmail" class="form-control p-2 " placeholder="Email address">
-                                        </div>
-                                        <div class="col-md-6 form-group mb-4">
-                                            <input type="number" name="clientPhone" class="form-control p-2 " placeholder="Contact Number">
-                                        </div>
-
-                                    </div>
-                                    <div class="row  justify-content-around ">
-
                                         <div class=" col-md-6 form-group ">
-                                            <select class="form-select p-2" name="clientgender" aria-label="Default select example">
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
+                                            <select class="form-select p-2" name="clientId" aria-label="Default select example">
+
+                                            <% for(i=0; i<clinetdetails.length; i++) { %>
+
+                                                <option value="<%= clinetdetails[i].id  %>"> <%= clinetdetails[i].clientName  %>  </option>
+                                                
                                          
-                                              </select>
-                                        </div>
-                                        <div class="col-md-6 form-group  ">
-                                            <input class="form-control p-2" name="clientfile" type="file">
+                                            <% } %>
+                                        </select>
+
                                         </div>
                                         <div class="row  mt-3">
-
                                             <div class="col-md-12">
                                                 <label>Client Requirement </label>
                                                 <input class="form-control p-2" name="projectfile" type="file">

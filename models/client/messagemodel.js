@@ -1,21 +1,19 @@
 module.exports = (sequelize, DataTypes) => {
-    const newclinet = sequelize.define('client', {
-        fullname: {
+    const newclientmember = sequelize.define('message', {
+        messageemail: {
             type: DataTypes.STRING
         },
-        email: {
+        messagephone: {
             type: DataTypes.STRING
         },
-        address: {
+        message: {
             type: DataTypes.STRING
-        },
-        password: {
-            type: DataTypes.STRING
-        },
+        }
+
     }, {
         createAt: false,
         updatedAt: false
     })
-    return newclinet
+    return newclientmember
 
 }

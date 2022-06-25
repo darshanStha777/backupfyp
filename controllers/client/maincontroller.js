@@ -7,6 +7,7 @@ const Teamproject = db.registernewTeamMember
 exports.getindexpage = async(req, res, next) => {
     const clientdetails = await req.user
 
+<<<<<<< HEAD
 
     let clientidd = clientdetails.dataValues.id
 
@@ -17,12 +18,16 @@ exports.getindexpage = async(req, res, next) => {
 
 
     res.render('clientpanel/index', { projectdetails, clientdetails })
+=======
+    res.render('clientpanel/index', { clientdetails })
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 }
 let clientid
 exports.getpaymentpage = async(req, res, next) => {
     // const projectdetails = await Projectmodel.findAll({})
     // console.log(projectdetails)
     const clientd = await req.user
+<<<<<<< HEAD
 
     // console.log("id" + clientd.dataValues.id)
     // let clientidd;
@@ -32,17 +37,29 @@ exports.getpaymentpage = async(req, res, next) => {
     // console.log(clientidd)
     let clientName = clientd.dataValues.clientName
 
+=======
+        // console.log("id" + clientd.dataValues.id)
+        // let clientidd;
+        // for (var i = 0; i < clientd.length; i++) {
+        //     clientidd = clientd[i].id
+        // }
+        // console.log(clientidd)
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
     clientid = clientd.dataValues.id
     const projectdetails = await Projectmodel.findAll({
             include: AddNewClient,
             where: { id: clientid }
         })
         //  console.log(projectdetails)
+<<<<<<< HEAD
     console.log("haha", projectdetails)
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
     let damount;
     for (i = 0; i < projectdetails.length; i++) {
         damount = projectdetails[i].pricedue
     }
+<<<<<<< HEAD
     console.log("due amount", damount)
     res.render('clientpanel/paymentpage', { damount, clientd, clientName })
 }
@@ -52,11 +69,20 @@ exports.getmessagepage = async(req, res, next) => {
     let clientName = clientdetails.dataValues.clientName
 
     res.render('clientpanel/message', { clientName, clientdetails })
+=======
+    console.log(damount)
+    res.render('clientpanel/paymentpage', { damount })
+}
+
+exports.getmessagepage = (req, res, next) => {
+    res.render('clientpanel/message')
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 }
 
 
 
 exports.postmessagepage = async(req, res, next) => {
+<<<<<<< HEAD
     const clientdetails = await req.user
     let clientid = await req.user.id
     let messagedetails = {
@@ -66,6 +92,15 @@ exports.postmessagepage = async(req, res, next) => {
 
     }
     const mmodel = await AddNewClient.update(messagedetails, { where: { id: clientid } })
+=======
+    let messagedetails = {
+        messageemail: req.body.messageemail,
+        messagephone: req.body.messagephone,
+        message: req.body.message,
+
+    }
+    const mmodel = await MessageModel.create(messagedetails)
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
     console.log("clinet message created")
     res.redirect('/client/message')
 
@@ -85,7 +120,11 @@ exports.paymentcontroller = (req, res, next) => {
     };
 
     let config = {
+<<<<<<< HEAD
         headers: { 'Authorization': 'key test_secret_key_44d80ca776a4446a8eb0fbd97c44624c' }
+=======
+        headers: { 'Authorization': 'key test_secret_key_8126b8cc380546dca40a07b5612b18f0' }
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
     };
     let allvallue
     axios.post("https://khalti.com/api/v2/payment/verify/", data, config)
@@ -112,7 +151,10 @@ exports.paymentcontroller = (req, res, next) => {
         // }
 }
 exports.storepayment = async(req, res, next) => {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
     // const projectdetails = await Projectmodel.findAll({})
     // console.log(projectdetails)
     const clientd = await req.user
@@ -133,6 +175,7 @@ exports.storepayment = async(req, res, next) => {
         damount = projectdetails[i].pricedue
     }
     console.log(damount)
+<<<<<<< HEAD
     res.render('clientpanel/paymentpage', { damount, clientd })
     console.log("haha")
 }
@@ -169,4 +212,8 @@ exports.postupdateprofiledata = async(req, res, next) => {
     }
     const updatedate = AddNewClient.update(newclientdetails, { where: { id: reqclientid } })
     res.redirect('/client/profile')
+=======
+    res.render('clientpanel/paymentpage', { damount })
+    console.log("haha")
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 }

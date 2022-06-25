@@ -8,8 +8,11 @@
                 padding-left: 0px !important;
             }
         </style>
+<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 </head>
 
 <body>
@@ -42,6 +45,7 @@
 
                             <!-- </li> -->
                             <li class="nav-item dropdown">
+<<<<<<< HEAD
                                 <div class="dropdown me-5 mt-1">
                                     <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span>                                    <img src="/src/uploadedimage/<%= employeeName.teamaddimage %> " class="rounded-circle" height="22" alt="" loading="lazy" />
@@ -50,6 +54,16 @@
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
                                         <li><a class="dropdown-item" href="/team/profile">My Profile</a></li>
                                         <li><a class="dropdown-item" href="/team/logout">Logout</a></li>
+=======
+                                <div class="dropdown mt-1">
+                                    <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                        <li><a class="dropdown-item" href="#">Setting</a></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                                     </ul>
                                 </div>
                             </li>
@@ -84,7 +98,10 @@
             <div class="container-fluid mt-1 navbar-light bg-white">
                 <div class="row d-flex justify-content-around">
                     <div class="col-md-4 d-flex  justify-content-center ">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                         <div>
                             <a href="/team/" class="nav-item nav-link text-dark active"> <i class="fas fa-tasks"></i> Project </a>
                         </div>
@@ -106,6 +123,7 @@
                         </div>
                         <div class="row  d-flex  justify-content-around ">
                             <div class="col-md-4 border border-dark">
+<<<<<<< HEAD
                                 <form action="/team/submitproject" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
 
@@ -119,13 +137,28 @@
                                     <div class="form-group">
                                         <label for="choosefile">Select File</label>
                                         <input required type="file" class="form-control" name="completeproject" id="choosefile">
+=======
+                                <form>
+                                    <div class="form-group">
+                                        <div> <label for="selectproject">Select Project</label>
+                                        </div>
+                                        <select class="form-select p-2" id="selectproject" name="sproject">
+                                                <option value=""> B & B School  </option>
+                                        </select> </div>
+                                    <div class="form-group">
+                                        <label for="choosefile">Select File</label>
+                                        <input type="file" class="form-control" id="choosefile">
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                                     </div>
                                     <div class="text-center mt-2">
                                         <button type="submit" class="btn btn-primary">Submit</button>
 
                                     </div>
                                 </form>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                             </div>
                         </div>
                     </div>
@@ -135,6 +168,7 @@
         </main>
         <!-- MDB -->
         <%- include("../include/footer.ejs") %>
+<<<<<<< HEAD
             <% if(submitpass == 'submit') {%>
                 <script>
                     Toastify({
@@ -146,6 +180,9 @@
                     }).showToast();
                 </script>
                 <% } %>
+=======
+
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
 
 </body>

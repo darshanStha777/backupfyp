@@ -9,8 +9,11 @@
                 padding-left: 0px !important;
             }
         </style>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 </head>
 
 <body>
@@ -34,6 +37,7 @@
                     <!-- Right links -->
                     <ul class="navbar-nav ms-auto d-flex flex-row">
 
+<<<<<<< HEAD
 
                         <li class="nav-item dropdown">
                             <div class="dropdown pe-5 mt-1">
@@ -46,6 +50,23 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
                                     <li><a class="dropdown-item" href="/client/profile">My Profile</a></li>
                                     <li><a class="dropdown-item" href="/client/logout">Logout</a></li>
+=======
+                        <!-- Search form -->
+                        <form class="d-none d-md-flex input-group w-auto my-auto">
+
+                            <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search ' style="min-width: 225px" />
+                            <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+                        </form>
+
+                        <li class="nav-item dropdown">
+                            <div class="dropdown mt-1">
+                                <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                                 </ul>
                             </div>
                         </li>
@@ -64,7 +85,11 @@
     <!--Main Navigation-->
 
     <!--Main layout-->
+<<<<<<< HEAD
     <main style="margin-top: 79px " class=" ">
+=======
+    <main style="margin-top: 60px " class=" ">
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
         <div class="container-fluid mt-1 navbar-light bg-white">
             <div class="row d-flex justify-content-around">
                 <div class="col-md-4 d-flex  justify-content-center ">
@@ -92,7 +117,10 @@
                 <div class="container">
                     <div class="header my-1 text-center">
                         <h1>Project Details </h1>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                     </div>
                     <div class="row">
                         <table id="" class="display table table-hover" style="width:100%">
@@ -100,6 +128,7 @@
                                 <tr class="bg-dark text-light">
                                     <th>S.N</th>
                                     <th>Project Name</th>
+<<<<<<< HEAD
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Project Progress</th>
@@ -192,6 +221,39 @@
                 $('#progressbar').attr('aria-valuenow', progress).css('width', progress + "%").html(progress + "% Complete");
             });
         </script>
+=======
+                                    <th>End Date</th>
+                                    <th>Project Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <th>B & B School</th>
+
+                                    <th>05-04-2022</th>
+                                    <th>
+                                        <div class="progress " style="height:10px">
+                                            <div class="progress-bar" style="width: 60%">
+                                                60%
+                                            </div>
+                                        </div>
+
+                                    </th>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Main chart -->
+        </div>
+    </main>
+    <!-- MDB -->
+    <%- include("../include/footer.ejs") %>
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
 
 

@@ -12,12 +12,12 @@ const { initializingPassport, isAuthenticated } = require('../middleware/passpor
 
 
 const indexadminController = require('../controllers/admin/indexadmin.js')
-router.get('/', isAuthenticated, indexadminController.getindexpage);
+router.get('/', indexadminController.getindexpage);
 
 
 const teamController = require('../controllers/admin/team.js')
-router.get('/addteam', isAuthenticated, teamController.getaddteampage);
-router.get('/viewteam', isAuthenticated, teamController.getviewteampage);
+router.get('/addteam', teamController.getaddteampage);
+router.get('/viewteam', teamController.getviewteampage);
 
 router.get('/teamdelete/:id', teamController.getteamdeletepage)
 
@@ -27,10 +27,16 @@ router.post('/addnewEmployee', upload.single('teamaddimage'), teamController.pos
 const projectController = require('../controllers/admin/project.js')
 router.get('/addproject', projectController.getaddprojectpage);
 router.get('/viewproject', projectController.getviewprojectpage);
+<<<<<<< HEAD
 router.post('/addprojectdetails', clientre.single('clientrequirement'), projectController.postaddproject)
 
 router.get('/projectdelete/:id', projectController.getdeleteproject)
+=======
+router.post('/addprojectdetails', projectController.postaddproject)
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
+router.get('/assignproject/:id', projectController.assignprojectpage)
+router.post('/assignpuser/:id', projectController.postassignprojectpage)
 
 
 router.get('/assignproject/:id', projectController.assignprojectpage)
@@ -49,6 +55,7 @@ router.post('/addnewclient', clientController.postaddclientpage)
 
 const messageController = require('../controllers/admin/message.js')
 router.get('/message', messageController.getmessagepage)
+<<<<<<< HEAD
 
 
 const allassignedpage = require('../controllers/admin/assigned')
@@ -62,6 +69,8 @@ router.get('/logout', function(req, res) {
 })
 const registation = require('../controllers/registration/registration')
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
 router.get('/registration', registation.getregistrationpage)
 router.post('/admindetails', registation.postregistrationpage)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const db = require('../../models')
 const AddNewClient = db.addnewclient
 const Projectmodel = db.proejct
@@ -81,4 +82,11 @@ exports.postupdatedetails = async(req, res, next) => {
 
     const updateteamdata = Teamproject.update(addteamdetails, { where: { id: reqteamid } })
     res.redirect('/team/profile')
+=======
+exports.getassignedpage = (req, res, next) => {
+    res.render('employee/assignedproject')
+}
+exports.getsubmitportalpage = (req, res, next) => {
+    res.render('employee/submitportal')
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 }

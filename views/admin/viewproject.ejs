@@ -3,6 +3,10 @@
 
 <head>
     <%- include("../include/head.ejs") %>
+<<<<<<< HEAD
+=======
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
 </head>
 
@@ -27,13 +31,18 @@
                                     <th>Advance</th>
                                     <th>Project start date</th>
                                     <th>End Date</th>
+<<<<<<< HEAD
                                     <th>assigned Member</th>
+=======
+                                    <th>assigned Project</th>
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                                     <th>Customer</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
+<<<<<<< HEAD
                                 <% for(i=0; i<allproject.length; i++) { %>
                                     <tr>
                                         <td>
@@ -64,6 +73,38 @@
                                     <% } %>
 
 
+=======
+                                <% for(i=0; i<allproject .length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <span><%= i+1 %></span>
+
+                                        </td>
+                                        <td>
+                                            <span><%= allproject[i].projectName %></span>
+                                        </td>
+                                        <td><span><%= allproject[i].projectprice %></span></td>
+                                        <td><span><%= allproject[i].priceAdvance %></span></td>
+                                        <td><span><%= allproject[i].projectstartdate %></span></td>
+                                        <td><span><%= allproject[i].projectenddate %></span></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-h"></i> </a>
+                                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
+                                                <li><a class="dropdown-item text-primary" href="/admin/assignproject/<%= allproject[i].id %>"><i class="fas fa-plus"></i> Assign </a></li>
+
+                                                <li><a class="dropdown-item text-primary" href="#"><i class="fas fa-edit"></i> Edit </a></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                                            </ul>
+
+                                        </td>
+                                    </tr>
+                                    <% } %>
+
+
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
                             </tbody>
                         </table>
                     </div>
@@ -73,7 +114,12 @@
         <!-- MDB -->
         <%- include("../include/footer.ejs") %>
 
-
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#myTable').DataTable();
+                });
+            </script>
 
 </body>
 

@@ -18,6 +18,10 @@ exports.postloginpage = async(req, res, next) => {
         const userdetails = await req.user
         console.log(userdetails)
         res.redirect('team/')
+<<<<<<< HEAD
+=======
+        res.render("employee/assignedproject", { userdetails })
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
         return
     }
 }

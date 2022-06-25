@@ -11,13 +11,20 @@ module.exports = (sequelize, DataTypes) => {
         },
         priceAdvance: {
             type: DataTypes.INTEGER
+<<<<<<< HEAD
         },
         pricedue: {
             type: DataTypes.INTEGER
         },
         clientrequirement: {
             type: DataTypes.STRING
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
         },
+        pricedue: {
+            type: DataTypes.INTEGER
+        },
+
         projectfile: {
             type: DataTypes.STRING
         },
@@ -27,12 +34,16 @@ module.exports = (sequelize, DataTypes) => {
         projectenddate: {
             type: DataTypes.STRING
         },
+<<<<<<< HEAD
         submittedproject: {
             type: DataTypes.STRING
         },
         submittoclient: {
             type: DataTypes.STRING
         },
+=======
+
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
         teamId: {
             type: DataTypes.INTEGER,
             references: {
@@ -46,6 +57,7 @@ module.exports = (sequelize, DataTypes) => {
                 model: 'clients',
                 key: 'id'
             }
+<<<<<<< HEAD
         },
         adminId: {
             type: DataTypes.INTEGER,
@@ -53,6 +65,8 @@ module.exports = (sequelize, DataTypes) => {
                 model: 'admins',
                 key: 'id'
             }
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
         }
 
     }, {

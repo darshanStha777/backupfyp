@@ -37,6 +37,7 @@ db.admin = require('./admindetails.js')(sequelize, DataTypes)
 db.proejct = require('./project/addproject.js')(sequelize, DataTypes)
 db.addnewclient = require('./client/newclient.js')(sequelize, DataTypes)
 db.addmessage = require('./client/messagemodel')(sequelize, DataTypes)
+<<<<<<< HEAD
 
 db.registernewTeamMember.hasMany(db.proejct);
 db.addnewclient.hasMany(db.proejct);
@@ -56,7 +57,14 @@ db.registernewTeamMember.belongsTo(db.admin);
 db.addnewclient.belongsTo(db.admin);
 
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
+db.registernewTeamMember.hasMany(db.proejct);
+db.addnewclient.hasMany(db.proejct);
+
+db.proejct.belongsTo(db.registernewTeamMember);
+db.proejct.belongsTo(db.addnewclient);
 
 
 

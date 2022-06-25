@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const teamcontroller = require('../controllers/team/assignedproject');
+<<<<<<< HEAD
 const teamsubmitp = require('../middleware/teamsubmitproject')
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
 
+router.get('/', teamcontroller.getassignedpage)
+router.get('/submitportal', teamcontroller.getsubmitportalpage)
 
 router.get('/', teamcontroller.getassignedpage)
 router.get('/submitportal', teamcontroller.getsubmitportalpage)

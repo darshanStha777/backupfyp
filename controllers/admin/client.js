@@ -34,8 +34,11 @@ exports.postaddclientpage = async(req, res, next) => {
                 clientPhone: req.body.clientPhone,
                 clientgender: req.body.clientgender,
                 password: req.body.clientpassword,
+<<<<<<< HEAD
                 adminId: reqadminid
 
+=======
+>>>>>>> 79d70b95157309323b77f385cc63f455931fbaa1
             }
             const newclient = await AddNewClient.create(newclientdetails)
             try {

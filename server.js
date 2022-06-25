@@ -27,6 +27,10 @@ const { initializingPassport } = require('./middleware/passportConfig.js')
 initializingPassport(passport);
 
 app.use(expressSession({ secret: 'anything', resave: true, saveUninitialized: true }));
+const flash = require('express-flash');
+
+app.use(flash());
+
 app.use(passport.initialize())
 app.use(passport.session())
 

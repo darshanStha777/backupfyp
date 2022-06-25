@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+
+        <!--Main layout-->
+        <main style="margin-top: 58px">
+
+            <!--Section: Minimal statistics cards-->
+            <section class="container pt-5">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center p-2">
+                                        <img src="/vendor/image/admind.png" height="100" width="100" alt="" class="img-thumbnail">
+                                    </div>
+
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-6">
+                                        <p class="card-subtitle mb-2 text-muted">Name</p>
+                                        <h6 class="card-title text-dark text-uppercase">
+                                            <%= ruserdetails.fullname %>
+                                        </h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-subtitle mb-2 text-muted">Date of Birth</p>
+                                        <h6 class="card-title text-dark">
+                                            <%= ruserdetails.dob %>
+                                        </h6>
+
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-6">
+                                        <p class="card-subtitle mb-2 text-muted">Gender</p>
+                                        <h6 class="card-title text-dark">
+                                            <%= ruserdetails.gender %>
+                                        </h6>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-subtitle mb-2 text-muted">Contact Number</p>
+                                        <h6 class="card-title text-dark">
+                                            <%= ruserdetails.phonenumber %>
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-6">
+                                        <p class="card-subtitle mb-2 text-muted">Email</p>
+                                        <h6 class="card-title text-dark">
+                                            <%= ruserdetails.email %>
+                                        </h6>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="card-subtitle mb-2 text-muted">Password </p>
+                                        <h6 class="card-title text-dark">
+                                            <%= ruserdetails.password %>
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="p-3"> <a href="/admin/updateprofile/<%= ruserdetails.id %>" class="btn btn-primary  w-100">Edit Data</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section: Minimal statistics cards-->
+
+
+
+        </main>
+        <!-- MDB -->
+        <%- include("../include/footer.ejs") %>
+
+
+
+</body>
+
+</html>

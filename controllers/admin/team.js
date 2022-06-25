@@ -1,16 +1,20 @@
 const db = require('../../models')
 const RegisterNewTeamMember = db.registernewTeamMember
 const { mail } = require('../../middleware/mail')
+let reuserid;
+exports.getaddteampage = async(req, res, next) => {
 
-exports.getaddteampage = (req, res, next) => {
-    res.render('admin/addteam', { message: false, alreadyuser: false })
+    const ruserdetails = await req.user
+    reuserid = ruserdetails.dataValues.id
+    res.render('admin/addteam', { message: false, alreadyuser: false, ruserdetails })
 }
+
 exports.getviewteampage = async(req, res, next) => {
-    const reuser = await req.user
-    console.log("requested user are ___", reuser)
-    RegisterNewTeamMember.findAll({})
+    const ruserdetails = await req.user
+    const reuser = req.user.id
+    RegisterNewTeamMember.findAll({ where: { adminId: reuser } })
         .then(alluserdetails => {
-            res.render('admin/viewteam', { alluserdetails })
+            res.render('admin/viewteam', { alluserdetails, ruserdetails })
         })
         .catch(err => {
             console.error(" Find data error in admin dashboard ", err)
@@ -19,8 +23,10 @@ exports.getviewteampage = async(req, res, next) => {
 }
 
 exports.postaddteampage = async(req, res, next) => {
+    const ruserdetails = await req.user
+
     const alreadyuser = await RegisterNewTeamMember.findOne({ where: { email: req.body.email } })
-    if (alreadyuser) return res.render('admin/addteam', { message: false, alreadyuser: true })
+    if (alreadyuser) return res.render('admin/addteam', { message: false, alreadyuser: true, ruserdetails })
     let addteamdetails = {
         memberName: req.body.memberName,
         position: req.body.position,
@@ -28,7 +34,8 @@ exports.postaddteampage = async(req, res, next) => {
         email: req.body.email,
         address: req.body.address,
         teamaddimage: req.file.filename,
-        password: req.body.teampassword
+        password: req.body.password,
+        adminId: reuserid
     }
     const newteamMember = await RegisterNewTeamMember.create(addteamdetails)
 
@@ -36,7 +43,7 @@ exports.postaddteampage = async(req, res, next) => {
         let name = req.body.memberName
         let email = req.body.email
         let position = req.body.position
-        let password = req.body.teampassword
+        let password = req.body.password
         mail.sendMail({
             from: 'myteamproject8@gmail.com',
             to: email,
@@ -47,8 +54,17 @@ exports.postaddteampage = async(req, res, next) => {
         })
         console.log("mail has been send")
         console.log(" Register New Team Member")
-        res.render('admin/addteam', { message: true, alreadyuser: false })
+        res.render('admin/addteam', { message: true, alreadyuser: false, ruserdetails })
     } catch (err) {
         console.log(err);
     }
+}
+
+exports.getteamdeletepage = async(req, res, next) => {
+    const ruserdetails = await req.user
+    let temaidd = req.params.id
+    const deleteteam = RegisterNewTeamMember.destroy({ where: { id: temaidd } })
+        .then(() => {
+            res.redirect('/admin/viewteam')
+        })
 }

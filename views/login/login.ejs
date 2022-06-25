@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form validation in HTML & CSS | CodingNepal</title>
+    <title>Login Form </title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -18,9 +18,14 @@
         }
         
         body {
-            background-color: #5372F0 !important;
+            background-color: #ffffff !important;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="/vendor/bootstrap.min.css">
 </head>
 
@@ -30,28 +35,57 @@
 
         <div class="container-fluid vh-100">
             <div class="row vh-100 d-flex align-content-center mt-5">
-                <div class="col-2 offset-5 bg-light p-2">
+                <div class="col-md-2 offset-md-5  p-2 ">
+                    <div>
+                        <% for(let i =0; i< errors.length; i++) { %>
+
+                            <div class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        <%= errors[i] %>
+                                    </div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="col-3 offset-5 bg-light py-3 px-5">
+
                     <form method="post" action="/postlogin">
                         <div class="row text-center">
                             <h2 class="text-light">Login</h2>
                         </div>
+
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                            <input type="email" pattern=".+@gmail\.com" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                            <input type="password" class="form-control" name="password" id="password">
+                            <div class="mt-2 d-flex justify-content-start">
+                                <div class=""><input type="checkbox" onclick="myFunction()"></div>
+                                <div class=" ms-1">
+                                    <p class="fs-6" style="font-weight:10px"> <small>Show Password</small> </p>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="usertype" class="form-label">User Type</label>
 
-                            <select class="form-select" id="usertype" name="usertype">
+                            <select class="form-select" id="usertype" onchange="display()" name="usertype">
                             <option value="employee">Employee</option>
                             <option value="client">Client</option>
-                            <option value="admin">admin</option>
+                            <option value="admin" selected>Manager</option>
                         </select>
                         </div>
+                        <div class="mb-3">
+                            <p id="first" class=""></p>
+                            <p class="form-label " id="second" style="font-weight: 5px;"> <small> Don't have an account yet? <a href="/admin/registration" class="text-decoration-none">Sign Up</a></small></p>
+                        </div>
+
 
                         <div class="m-2 d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">Login</button>
@@ -63,61 +97,37 @@
 
         </div>
     </div>
-    <!-- <script>
-        const form = document.querySelector("form");
-        eField = form.querySelector(".email"),
-            eInput = eField.querySelector("input"),
-            pField = form.querySelector(".password"),
-            pInput = pField.querySelector("input");
-
-        form.onsubmit = (e) => {
-            e.preventDefault(); //preventing from form submitting
-            //if email and password is blank then add shake class in it else call specified function
-            (eInput.value == "") ? eField.classList.add("shake", "error"): checkEmail();
-            (pInput.value == "") ? pField.classList.add("shake", "error"): checkPass();
-
-            setTimeout(() => { //remove shake class after 500ms
-                eField.classList.remove("shake");
-                pField.classList.remove("shake");
-            }, 500);
-
-            eInput.onkeyup = () => {
-                    checkEmail();
-                } //calling checkEmail function on email input keyup
-            pInput.onkeyup = () => {
-                    checkPass();
-                } //calling checkPassword function on pass input keyup
-
-            function checkEmail() { //checkEmail function
-                let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //pattern for validate email
-                if (!eInput.value.match(pattern)) { //if pattern not matched then add error and remove valid class
-                    eField.classList.add("error");
-                    eField.classList.remove("valid");
-                    let errorTxt = eField.querySelector(".error-txt");
-                    //if email value is not empty then show please enter valid email else show Email can't be blank
-                    (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address": errorTxt.innerText = "Email can't be blank";
-                } else { //if pattern matched then remove error and add valid class
-                    eField.classList.remove("error");
-                    eField.classList.add("valid");
-                }
-            }
-
-            function checkPass() { //checkPass function
-                if (pInput.value == "") { //if pass is empty then add error and remove valid class
-                    pField.classList.add("error");
-                    pField.classList.remove("valid");
-                } else { //if pass is empty then remove error and add valid class
-                    pField.classList.remove("error");
-                    pField.classList.add("valid");
-                }
-            }
-
-            //if eField and pField doesn't contains error class that mean user filled details properly
-            if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
-                window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
+    <script>
+        function display() {
+            var e = document.getElementById("usertype");
+            var index = e.selectedIndex;
+            if (index == 0) {
+                document.getElementById("first").style.display = 'block'
+                document.getElementById("second").style.display = 'none'
+            } else if (index == 1) {
+                document.getElementById("first").style.display = 'block'
+                document.getElementById("second").style.display = 'none'
+            } else if (index == 1) {
+                document.getElementById("first").style.display = 'none'
+                document.getElementById("second").style.display = 'block'
             }
         }
-    </script> -->
+
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".toast").toast('show');
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <% if(loginMessage) {%>

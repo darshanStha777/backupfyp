@@ -33,19 +33,19 @@
 
                                         <div class=" col-md-6 form-group mb-4">
 
-                                            <input type="text" name="clientName" class="form-control p-2  " placeholder="Client name">
+                                            <input type="text" name="clientName" class="form-control p-2  " required placeholder="Client name">
                                         </div>
                                         <div class="col-md-6 form-group mb-4 ">
-                                            <input type="text" name="clientAddress" class="form-control p-2" placeholder="Address">
+                                            <input required type="text" name="clientAddress" class="form-control p-2" placeholder="Address">
                                         </div>
                                     </div>
                                     <div class="row  justify-content-around  ">
 
                                         <div class=" col-md-6 form-group mb-4 ">
-                                            <input type="email" name="clientEmail" class="form-control p-2 " placeholder="Email address">
+                                            <input required pattern=".+@gmail\.com" type="email" name="email" class="form-control p-2 " placeholder="Email address">
                                         </div>
                                         <div class="col-md-6 form-group mb-4">
-                                            <input type="number" name="clientPhone" class="form-control p-2 " placeholder="Contact Number">
+                                            <input required type="number" name="clientPhone" class="form-control p-2 " placeholder="Contact Number">
                                         </div>
 
                                     </div>
@@ -55,11 +55,19 @@
                                             <select class="form-select p-2" name="clientgender" aria-label="Default select example">
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
+                                                <option value="other">Other</option>
                                          
                                               </select>
                                         </div>
                                         <div class="col-md-6 form-group  ">
-                                            <input class="form-control p-2" placeholder="password" name="clientpassword" type="password">
+                                            <input required class="form-control p-2" placeholder="password" name="clientpassword" type="password" id="password">
+                                            <div class="mt-2 d-flex justify-content-start">
+                                                <div class=""><input type="checkbox" onclick="myFunction()"></div>
+                                                <div class=" ms-1">
+                                                    <p class="fs-6" style="font-weight:10px"> <small>Show Password</small> </p>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,11 +75,17 @@
 
                         </div>
                     </div>
+                    <% if(newclient == 'alreadyclient') {%>
+                        <div class="row text-center">
+                            <h6 class="text-danger">Already client</h6>
+                        </div>
+                        <% } %>
 
-                    <div class="row ">
-                        <div class="p-2 d-flex justify-content-center"> <input type="submit" class="btn btn-primary" value="Add Client"></div>
 
-                    </div>
+                            <div class="row ">
+                                <div class="p-2 d-flex justify-content-center"> <input type="submit" class="btn btn-primary" value="Add Client"></div>
+
+                            </div>
                 </form>
             </section>
 
@@ -80,6 +94,16 @@
 
 
         <%- include("../include/footer.ejs") %>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
             <!-- MDB -->
             <script>
                 console.log("newclient")

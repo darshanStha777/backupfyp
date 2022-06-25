@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+        <!--Main layout-->
+        <main style="margin-top: 108px; margin-bottom: 75px;">
+            <section class="container">
+
+                <div class="row p-4">
+                    <section class="team text-center ">
+                        <div class="container">
+                            <div class="header my-5">
+                                <h1>Project Details </h1>
+                            </div>
+                            <div class="row">
+                                <table id="myTable" class="display" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>S.N</th>
+                                            <th>Project Name</th>
+                                            <th>Project start date</th>
+                                            <th>End Date</th>
+
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <% for(i=0; i<allproject.length; i++) { %>
+                                            <tr>
+                                                <td>
+                                                    <span><%= i+1 %></span>
+
+                                                </td>
+                                                <td>
+                                                    <span><%= allproject[i].projectName %></span>
+                                                </td>
+
+                                                <td><span><%= allproject[i].projectstartdate %></span></td>
+                                                <td><span><%= allproject[i].projectenddate %></span></td>
+                                                <td class="">
+                                                    <div class="row  d-flex justify-content-around">
+                                                        <div class="col mt-2">
+                                                            <a class="btn btn-success" href="/src/teamsubmitproject/<%= allproject[i].submittedproject %> " download>Download</a>
+
+                                                        </div>
+                                                        <form action="/admin/submittoclient/<%= allproject[i].id %> " method="post">
+                                                            <div class="col mt-2">
+                                                                <button type="submit" class="btn btn-primary">Submit to CLient</button>
+
+                                                            </div>
+                                                        </form>
+                                                        <div class="col mt-2">
+                                                            <button class="btn btn-danger">Cancle</button>
+
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+
+
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+        </main>
+        <!--Main layout-->
+
+
+        <%- include("../include/footer.ejs") %>
+            <script>
+                $('#clickme').on('click', function() {
+                    Swal.fire(
+                        'The Internet?',
+                        'That thing is still around?',
+                        'question'
+                    )
+
+                })
+            </script>
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#myTable').DataTable();
+                });
+            </script>
+
+
+
+
+            <!-- MDB -->
+
+
+</body>
+
+</html>

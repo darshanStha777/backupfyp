@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-    const newclientmember = sequelize.define('NewClient', {
+    const newclientmember = sequelize.define('client', {
         clientName: {
             type: DataTypes.STRING
         },
         clientAddress: {
             type: DataTypes.STRING
         },
-        clientEmail: {
+        email: {
             type: DataTypes.STRING
         },
-        clientpassword: {
+        password: {
             type: DataTypes.STRING
         },
         clientPhone: {
@@ -18,6 +18,20 @@ module.exports = (sequelize, DataTypes) => {
         clientgender: {
             type: DataTypes.STRING
         },
+        messagetopic: {
+            type: DataTypes.STRING
+        },
+        messagedescription: {
+            type: DataTypes.STRING
+        },
+
+        adminId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'admins',
+                key: 'id'
+            }
+        }
 
     }, {
         createAt: false,

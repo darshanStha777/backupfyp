@@ -3,6 +3,7 @@
 
 <head>
     <%- include("../include/head.ejs") %>
+
 </head>
 
 <body>
@@ -14,59 +15,57 @@
             <section class="team text-center py-5">
                 <div class="container">
                     <div class="header my-5">
-                        <h1>Meet our Team </h1>
+                        <h1>Project Details </h1>
                     </div>
                     <div class="row">
-                        <% for(i=0; i<memberpersonal.length; i++) { %>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="img-block mb-5">
-                                    <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t4.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
-                                    <div class="content mt-2">
-                                        <h4>
-                                            <%= memberpersonal[i].memberName  %>
-                                        </h4>
-                                        <p class="text-muted">
-                                            <%= memberpersonal[i].position  %>
-                                        </p>
-                                        <a href="/admin/personal/<%= memberpersonal[i].id  %>" class="btn btn-secondary">View More</a>
-                                    </div>
-                                </div>
+                        <table id="myTable" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>S.N</th>
+                                    <th>Project Name</th>
+                                    <th>project Total Price</th>
+                                    <th>Advance</th>
+                                    <th>Project start date</th>
+                                    <th>End Date</th>
+                                    <th>assigned Member</th>
+                                    <th>Customer</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            </div>
-                            <% } %>
-                                <!-- <div class="col-md-6 col-lg-3 ">
-                            <div class="img-block mb-5">
-                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t2.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
-                                <div class="content mt-2">
-                                    <h4>Syndia Lee</h4>
-                                    <p class="text-muted">UI & UX Developer</p>
-                                    <a href="" class="btn btn-secondary">View More</a>
+                                <% for(i=0; i<allproject.length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <span><%= i+1 %></span>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="img-block mb-5">
-                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t1.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
-                                <div class="content mt-2">
-                                    <h4>Noel Flantier</h4>
-                                    <p class="text-muted">Backend Developer</p>
-                                    <a href="" class="btn btn-secondary">View More</a>
+                                        </td>
+                                        <td>
+                                            <span><%= allproject[i].projectName %></span>
+                                        </td>
+                                        <td><span><%= allproject[i].projectprice %></span></td>
+                                        <td><span><%= allproject[i].priceAdvance %></span></td>
+                                        <td><span><%= allproject[i].projectstartdate %></span></td>
+                                        <td><span><%= allproject[i].projectenddate %></span></td>
+                                        <td><span><%= allproject[i].teamId %></span></td>
+                                        <td><span><%= allproject[i].clientId %></span></td>
+                                        <td>
+                                            <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-h"></i> </a>
+                                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
+                                                <li><a class="dropdown-item text-primary" href="/admin/assignproject/<%= allproject[i].id %>"><i class="fas fa-plus"></i> Assign </a></li>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="img-block mb-5">
-                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t3.jpg" class="img-fluid  img-thumbnail rounded-circle shadow-lg" alt="image1">
-                                <div class="content mt-2">
-                                    <h4>Bobby Doe</h4>
-                                    <p class="text-muted">Street Artist</p>
-                                    <a href="" class="btn btn-secondary">View More</a>
+                                                <li><a class="dropdown-item text-primary" href="#"><i class="fas fa-edit"></i> Edit </a></li>
+                                                <li><a class="dropdown-item text-danger" href="/admin/projectdelete/<%= allproject[i].id %>"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                                            </ul>
 
-                                </div>
-                            </div>
-                        </div> -->
+                                        </td>
+                                    </tr>
+                                    <% } %>
+
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>

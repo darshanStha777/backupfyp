@@ -1,9 +1,21 @@
 const db = require('../../models')
-const RegisterNewTeamMember = db.registernewTeamMember
+const Teamproject = db.registernewTeamMember
+const AddNewClient = db.addnewclient
+const Projectmodel = db.proejct
+
+
 
 exports.getindexpage = async(req, res, next) => {
-    const requser = await req.user
-    console.log("requested user details", requser)
-    res.render('admin/indexadmin.ejs');
+    const ruserdetails = await req.user
+    const ruserid = await req.user.id
+
+
+    const allproject = await Projectmodel.findAll({ where: { adminId: ruserid } }, { include: Teamproject })
+        // const totalnewproject = await Projectmodel.aggregate('teamId', 'DISTINCT', { plain: false, where: { teamId: ruserid } })
+        // const completeprojectall = await Projectmodel.aggregate('submittedproject', 'DISTINCT', { plain: false, where: { teamId: ruserid } })
+
+
+
+    res.render('admin/indexadmin.ejs', { ruserdetails, allproject });
 
 }

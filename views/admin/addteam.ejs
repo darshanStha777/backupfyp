@@ -26,7 +26,7 @@
 
                                         <div class=" col-12 form-group mb-4">
                                             <label for="teammebername">Employee Name</label>
-                                            <input type="text" id="teammebername" name="memberName" class="form-control border-dark p-2" placeholder="Full Name">
+                                            <input type="text" id="teammebername" name="memberName" class="form-control border-dark p-2" required placeholder="Full Name">
                                         </div>
                                         <div class=" col-12 form-outline mb-4">
                                             <label for="exampleInputEmail1">Position</label>
@@ -39,25 +39,32 @@
                                     </div>
                                     <div class="row  justify-content-around  ">
                                         <div class="col-md-6 form-group mb-4">
-                                            <input type="text" class="form-control p-2 border-dark" name="contactNumber" placeholder="Contact Number">
+                                            <input required type="text" class="form-control p-2 border-dark" name="contactNumber" placeholder="Contact Number">
                                         </div>
                                         <div class=" col-md-6 form-group mb-4">
-                                            <input type="email" class="form-control p-2 border-dark" name="email" placeholder="Email" autocomplete="off">
+                                            <input required type="email" pattern=".+@gmail\.com" class="form-control p-2 border-dark" name="email" placeholder="Email" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="row justify-content-around  mb-4">
                                         <div class="col-md-12">
-                                            <input type="text" autocomplete="off" class="form-control p-2 border-dark" name="address" placeholder="Address">
+                                            <input required type="text" autocomplete="off" class="form-control p-2 border-dark" name="address" placeholder="Address">
                                         </div>
                                     </div>
                                     <div class="row justify-content-around mb-4">
                                         <div class="col-md-12">
-                                            <input type="file" autocomplete="off" class="form-control p-2 border-dark" name="teamaddimage">
+                                            <input required type="file" autocomplete="off" class="form-control p-2 border-dark" name="teamaddimage">
                                         </div>
                                     </div>
                                     <div class="row justify-content-around ">
                                         <div class="col-md-12">
-                                            <input type="password" autocomplete="off" class="form-control p-2 border-dark" name="teampassword" placeholder="Password">
+                                            <input required type="password" autocomplete="off" class="form-control p-2 border-dark" name="password" id="password" placeholder="Password">
+                                            <div class="mt-2 d-flex justify-content-start">
+                                                <div class=""><input type="checkbox" onclick="myFunction()"></div>
+                                                <div class=" ms-1">
+                                                    <p class="fs-6" style="font-weight:10px"> <small>Show Password</small> </p>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row  p-3">
@@ -80,6 +87,16 @@
         <!--Main layout-->
 
         <%- include("../include/footer.ejs") %>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
             <% if(message) {%>
                 <script>
                     Toastify({

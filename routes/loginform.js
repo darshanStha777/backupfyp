@@ -6,11 +6,12 @@ const passport = require('passport');
 
 const { initializingPassport, isAuthenticated } = require('../middleware/passportConfig.js')
 
-router.get('/login', loginController.getloginpage);
+router.get('/', loginController.getloginpage);
 
 
 router.post('/postlogin', passport.authenticate("local", {
-    failureRedirect: "/register",
+    failureFlash: true,
+    failureRedirect: '/',
     session: true
 }), loginController.postloginpage);
 module.exports = router

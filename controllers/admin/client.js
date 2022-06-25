@@ -4,34 +4,43 @@ const { mail } = require('../../middleware/mail')
 
 
 exports.getviewclientpage = async(req, res, next) => {
-    const allclient = await AddNewClient.findAll({})
+    const reqestad = await req.user.dataValues.id
+    const ruserdetails = await req.user
+    const allclient = await AddNewClient.findAll({ where: { adminId: reqestad } })
     console.log(allclient)
-    res.render('admin/viewclient.ejs', { allclient });
+    res.render('admin/viewclient.ejs', { allclient, ruserdetails });
 
 
 }
-exports.getaddclientpage = (req, res, next) => {
-    res.render('admin/addclient.ejs', { newclient: false });
+let reqadminid;
+exports.getaddclientpage = async(req, res, next) => {
+    const ruserdetails = await req.user
+    reqadminid = ruserdetails.dataValues.id
+    console.log(req.user)
+    res.render('admin/addclient.ejs', { newclient: false, ruserdetails });
 }
-
 exports.postaddclientpage = async(req, res, next) => {
+    const ruserdetails = await req.user
+    const managerName = await req.user.dataValues.fullname
     try {
-        const alreadyclient = await AddNewClient.findOne({ where: { clientEmail: req.body.clientEmail } })
+        const alreadyclient = await AddNewClient.findOne({ where: { email: req.body.email } })
         if (alreadyclient) {
-            res.render('admin/addclient', { newclient: 'alreadyclient' })
+            res.render('admin/addclient', { newclient: 'alreadyclient', ruserdetails })
         } else {
             const newclientdetails = {
                 clientName: req.body.clientName,
                 clientAddress: req.body.clientAddress,
-                clientEmail: req.body.clientEmail,
+                email: req.body.email,
                 clientPhone: req.body.clientPhone,
                 clientgender: req.body.clientgender,
-                clientpassword: req.body.clientpassword,
+                password: req.body.clientpassword,
+                adminId: reqadminid
+
             }
             const newclient = await AddNewClient.create(newclientdetails)
             try {
                 let name = req.body.clientName
-                let email = req.body.clientEmail
+                let email = req.body.email
                 let password = req.body.clientpassword
                 mail.sendMail({
                     from: 'myteamproject8@gmail.com',
@@ -43,7 +52,7 @@ exports.postaddclientpage = async(req, res, next) => {
                 })
                 console.log("mail has been send")
                 console.log(" Register New Team Member")
-                res.render('admin/addclient', { newclient: 'newclient' })
+                res.render('admin/addclient', { newclient: 'newclient', ruserdetails })
                 console.log("cleint added")
             } catch (err) {
                 console.log(err);
@@ -54,4 +63,14 @@ exports.postaddclientpage = async(req, res, next) => {
     } catch (err) {
         console.log("error in add client", err)
     }
+}
+
+
+exports.getclientdelete = async(req, res, next) => {
+    const ruserdetails = await req.user
+    let cliidd = req.params.id
+    const clientdelete = AddNewClient.destroy({ where: { id: cliidd } })
+        .then(() => {
+            res.redirect("/admin/viewclient")
+        })
 }

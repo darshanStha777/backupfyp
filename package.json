@@ -10,9 +10,11 @@
     "author": "Darshan Shrestha",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.26.1",
         "cors": "^2.8.5",
         "ejs": "^3.1.6",
         "express": "^4.17.3",
+        "express-flash": "0.0.2",
         "express-session": "^1.17.2",
         "multer": "^1.4.4",
         "mysql2": "^2.3.3",

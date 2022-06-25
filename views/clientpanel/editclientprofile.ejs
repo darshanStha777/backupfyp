@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("../include/head.ejs") %>
+        <style>
+            main {
+                padding-left: 0px !important;
+            }
+        </style>
+</head>
+
+<body>
+
+    <header style="overflow-x: scroll;">
+
+
+
+        <!-- Navbar -->
+        <!--Main Navigation-->
+        <header>
+            <!-- Navbar -->
+            <nav id="main-navbar" class=" row navbar navbar-expand-lg navbar-light bg-white fixed-top">
+                <!-- Container wrapper -->
+                <div class="container-fluid ">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="#">
+                        <img src="/vendor/image/team-management--removebg-preview.png" height="50" alt="" loading="lazy" />
+                    </a>
+
+                    <!-- Right links -->
+                    <ul class="navbar-nav ms-auto d-flex flex-row">
+
+
+                        <li class="nav-item dropdown">
+                            <div class="dropdown pe-5 mt-1">
+
+                                <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="text-uppercase"> <%= clientdetails.clientName %> <i class="fas fa-angle-down ms-2"></i> </span>
+
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="dropdown-item" href="/client/">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="/client/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </nav>
+            <!-- Navbar -->
+
+
+        </header>
+
+
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main style="margin-top: 79px " class=" ">
+        <div class="container-fluid mt-1 navbar-light bg-white">
+            <div class="row d-flex justify-content-around">
+                <div class="col-md-4 d-flex  justify-content-center ">
+                    <div>
+                        <a href="/client/" class="nav-item nav-link text-dark "> <i class="fas fa-tasks"></i> Project </a>
+                    </div>
+                    <div>
+                        <a href="/client/paymentpage" class="nav-item nav-link text-dark "> <i class="fas fa-credit-card"></i> Payment</a>
+                    </div>
+                    <div>
+                        <a href="/client/message" class="nav-item nav-link text-dark "> <i class="fas fa-envelope"></i> Message</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--Section: Minimal statistics cards-->
+        <!--Section: Minimal statistics cards-->
+
+        <!--Section: Minimal statistics cards-->
+
+        <div class="container-fluid pt-4  ">
+            <!-- Section: Main chart -->
+            <section class="team  py-1">
+                <div class="container">
+                    <div class="header my-1 text-center">
+                        <h1>Profile Details</h1>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-4">
+                            <form action="/client/profileupdatedetails/<%= clientdetails.id %>" method="POST">
+                                <!-- Card -->
+                                <div class="card p-3">
+                                    <div class="px-3 py-2 border-bottom">
+                                        <!-- Title -->
+                                        <h4 class="card-title m-3"><a>Client Details</a></h4>
+                                    </div>
+
+                                    <!-- Card content -->
+                                    <div class="card-body">
+                                        <div class="row  justify-content-around ">
+
+                                            <div class=" col-md-6 form-group mb-4">
+
+                                                <input required type="text" name="clientName" value="<%= clientdetails.clientName %>" class="form-control p-2  " placeholder="Client name">
+                                            </div>
+                                            <div class="col-md-6 form-group mb-4 ">
+                                                <input required type="text" name="clientAddress" value="<%= clientdetails.clientAddress %>" class="form-control p-2" placeholder="Address">
+                                            </div>
+                                        </div>
+                                        <div class="row  justify-content-around  ">
+
+                                            <div class=" col-md-6 form-group mb-4 ">
+                                                <input required type="email" name="email" readonly value="<%= clientdetails.email %>" class="form-control p-2 " placeholder="Email address">
+                                            </div>
+                                            <div class="col-md-6 form-group mb-4">
+                                                <input required type="number" name="clientPhone" readonly value="<%= clientdetails.clientPhone %>" class="form-control p-2 " placeholder="Contact Number">
+                                            </div>
+
+                                        </div>
+                                        <div class="row  justify-content-around ">
+                                            <div class="col-md-12 form-group  ">
+                                                <input required class="form-control p-2" value="<%= clientdetails.password %>" placeholder="password" name="clientpassword" id="password" type="password">
+                                                <div class="mt-2 d-flex justify-content-start">
+                                                    <div class=""><input type="checkbox" onclick="myFunction()"></div>
+                                                    <div class=" ms-1">
+                                                        <p class="fs-6" style="font-weight:10px"> <small>Show Password</small> </p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="row ">
+                                    <div class="p-2 d-flex justify-content-center"> <input type="submit" class="btn btn-primary" value="Update Details"></div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Main chart -->
+        </div>
+    </main>
+    <!-- MDB -->
+    <%- include("../include/footer.ejs") %>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+
+</body>
+
+</html>

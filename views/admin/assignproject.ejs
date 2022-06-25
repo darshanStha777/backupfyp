@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+
+        <!--Main layout-->
+        <main style="margin-top: 58px">
+
+            <section class="team text-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <form action="/admin/assignpuser/<%= ruser  %>" method="post">
+                            <% for(i=0; i<allteammember.length; i++) { %>
+                                <div class="col-md-6 col-lg-3 p-3">
+                                    <div class="img-block mb-5 border  border-primary border-1 p-2 ">
+                                        <img src="/src/uploadedimage/<%= allteammember[i].teamaddimage %>" class="img-fluid img-thumbnail  rounded-circle shadow-lg" alt="image1">
+                                        <div class="content mt-2">
+                                            <h4>
+                                                <%= allteammember[i].memberName  %>
+                                            </h4>
+                                            <p class="text-muted">
+                                                <%= allteammember[i].position  %>
+                                            </p>
+                                            <button type="submit" class="btn btn-success" name="teamId" value="<%= allteammember[i].id %>">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <% } %>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- MDB -->
+        <%- include("../include/footer.ejs") %>
+
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#myTable').DataTable();
+                });
+            </script>
+
+</body>
+
+</html>

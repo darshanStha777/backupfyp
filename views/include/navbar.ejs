@@ -74,6 +74,12 @@
                             </div>
                         </div>
                     </div>
+                    <a href="/admin/message" class="list-group-item list-group-item-action  py-3 ">
+                        <i class="fas fa-envelope  text-primary  me-3"></i><span>Message</span>
+                    </a>
+                    <a href="/admin/assignedprojectpage" class="list-group-item list-group-item-action  py-3 ">
+                        <i class="fas fa-tasks text-success  text-primary  me-3"></i><span>Assigned Project</span>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -95,50 +101,22 @@
 
                 <!-- Right links -->
                 <ul class="navbar-nav ms-auto d-flex flex-row">
-                    <!-- Search form -->
-                    <form class="d-none d-md-flex input-group w-auto my-auto">
-                        <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search ' style="min-width: 225px" />
-                        <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-                    </form>
 
-                    <!-- Notification dropdown -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Team Notification</a></li>
-                            <li><a class="dropdown-item" href="#">Project Notification</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else</a>
-                            </li>
-                        </ul> -->
-                    <!-- </li> -->
+
+
                     <li class="nav-item dropdown">
-                        <div class="dropdown mt-1">
+                        <div class="dropdown me-4 mt-1">
                             <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                                <span class="text-uppercase"> <%= ruserdetails.fullname %> <i class="fas fa-angle-down ms-2"></i> </span>
+
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
-                                <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Setting</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="/admin/profile">My Profile</a></li>
+                                <li><a class="dropdown-item" href="/admin/logout">Logout</a></li>
                             </ul>
                         </div>
                     </li>
 
-                    <!-- Avatar -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">My profile</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </li> -->
                 </ul>
             </div>
             <!-- Container wrapper -->

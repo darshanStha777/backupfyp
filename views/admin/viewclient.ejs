@@ -55,7 +55,7 @@
 
 
                 </div>
-                <div class="row p-4  " style="overflow-x: scroll;">
+                <div class="row p-4">
                     <table class="table table-borderless clienttable table-hover" style="border: none !important;">
                         <thead>
                             <tr style="background-color:black !important; color: white !important;">
@@ -78,7 +78,7 @@
                                     <td>
                                         <span><%= allclient[i].clientName %></span>
                                     </td>
-                                    <td><span><%= allclient[i].clientEmail %></span></td>
+                                    <td><span><%= allclient[i].email %></span></td>
                                     <td><span><%= allclient[i].clientPhone %></span></td>
                                     <td><span><%= allclient[i].clientAddress %></span></td>
 
@@ -87,8 +87,7 @@
                                         <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="fas fa-ellipsis-h"></i> </a>
                                         <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
-                                            <li><a class="dropdown-item text-primary" href="#"><i class="fas fa-edit"></i> Edit </a></li>
-                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                                            <li><a class="dropdown-item text-danger" href="/admin/clientdelete/<%= allclient[i].id %> "><i class="fas fa-trash-alt"></i> Delete</a></li>
                                         </ul>
 
                                     </td>

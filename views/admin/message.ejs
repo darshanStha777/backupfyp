@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+        <!--Main layout-->
+        <main style="margin-top: 108px; margin-bottom: 75px;">
+            <section class="container">
+                <div class="row mt-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <h4>Customer Message</h4>
+
+                    </div>
+
+
+
+                </div>
+                <div class="row p-4">
+                    <table id="" class="display table table-hover" style="width:100%">
+                        <thead>
+                            <tr class="bg-dark text-light">
+                                <th>S.N</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message Topic</th>
+                                <th>Message Description</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <% for(i=0; i<messagedetails.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= i +1  %>
+                                    </td>
+                                    <td>
+                                        <%= messagedetails[i].clientName  %>
+                                    </td>
+                                    <td>
+                                        <%= messagedetails[i].email  %>
+                                    </td>
+                                    <td>
+                                        <%= messagedetails[i].messagetopic  %>
+                                    </td>
+                                    <td>
+                                        <%= messagedetails[i].messagedescription  %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        <!--Main layout-->
+
+
+        <%- include("../include/footer.ejs") %>
+            <script>
+                $('#clickme').on('click', function() {
+                    Swal.fire(
+                        'The Internet?',
+                        'That thing is still around?',
+                        'question'
+                    )
+
+                })
+            </script>
+
+
+
+            <!-- MDB -->
+
+
+</body>
+
+</html>

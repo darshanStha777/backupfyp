@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../include/head.ejs") %>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+        <style>
+            main {
+                padding-left: 0px !important;
+            }
+        </style>
+</head>
+
+<body>
+    <header>
+
+
+
+        <!-- Navbar -->
+        <!--Main Navigation-->
+        <header>
+
+
+            <!-- Navbar -->
+            <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+
+
+                    <!-- Brand -->
+                    <a class="navbar-brand " href="#">
+                        <img src="/vendor/image/team-management--removebg-preview.png" height="50" alt="" loading="lazy" />
+                    </a>
+
+                    <!-- Right links -->
+                    <ul class="navbar-nav ms-auto  d-flex flex-row">
+
+
+
+                        <!-- </li> -->
+                        <li class="nav-item dropdown">
+                            <div class="dropdown mt-1">
+                                <a class="" id="dropdownMenuButton2" role="" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span>                                    <img src="/src/uploadedimage/<%= employeeName.teamaddimage %> " class="rounded-circle" height="22" alt="" loading="lazy" />
+                                   </span> <span class="text-uppercase"> <%= employeeName.memberName %> <i class="fas fa-angle-down ms-2"></i> </span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="/team/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Avatar -->
+                        <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">My profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li> -->
+                    </ul>
+                </div>
+                <!-- Container wrapper -->
+
+            </nav>
+            <!-- Navbar -->
+
+        </header>
+
+
+    </header>
+    <main style="margin-top: 58px">
+        <div class="container-fluid mt-1 navbar-light bg-white">
+            <div class="row d-flex justify-content-around">
+                <div class="col-md-4 d-flex  justify-content-center ">
+                    <div>
+                        <a href="/team/" class="nav-item nav-link text-dark "> <i class="fas fa-tasks"></i> Project </a>
+                    </div>
+                    <div>
+                        <a href="/team/submitportal" class="nav-item text-dark nav-link "> <i class="fas fa-check-square"></i> Submit Portal</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container pt-4 mt-5 ">
+            <!-- Section: Main chart -->
+            <section class="mb-4">
+                <div class="row d-flex justify-content-center">
+                    <section class="container-fluid ">
+                        <form action="/team/updateprofiled/<%= rupdatet.id %>" method="post">
+
+                            <div class="row justify-content-around  p-3">
+                                <div class="col-md-6 mb-4 ">
+                                    <!-- Card -->
+                                    <div class="card p-3 border-lg">
+                                        <div class="px-3 py-2 border-bottom text-center">
+                                            <!-- Title -->
+                                            <h4 class="card-title m-3"><a>Profile Details</a></h4>
+                                        </div>
+
+                                        <!-- Card content -->
+                                        <div class="card-body">
+                                            <div class="row  justify-content-around ">
+
+                                                <div class=" col-12 form-group mb-4">
+                                                    <label for="teammebername">Employee Name</label>
+                                                    <input type="text" id="teammebername" name="memberName" value="<%= rupdatet.memberName %>" class="form-control border-dark p-2 " placeholder="Full Name">
+                                                </div>
+
+                                            </div>
+                                            <div class="row  justify-content-around  ">
+                                                <div class="col-md-6 form-group mb-4">
+                                                    <input type="text" class="form-control p-2 border-dark" name="contactNumber" value="<%= rupdatet.contactNumber %>" readonly placeholder="Contact Number">
+                                                </div>
+                                                <div class=" col-md-6 form-group mb-4">
+                                                    <input type="email" class="form-control p-2 border-dark" name="email" placeholder="Email" value="<%= rupdatet.email %>" readonly autocomplete=" off ">
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-around mb-4 ">
+                                                <div class="col-md-12 ">
+                                                    <input type="text " autocomplete="off " class="form-control p-2 border-dark " name="address" value="<%=rupdatet.address %>" placeholder="Address">
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-around ">
+                                                <div class="col-md-12 ">
+                                                    <input type="password" autocomplete="off " class="form-control p-2 border-dark " id="password" name="password" value="<%= rupdatet.password %>" placeholder="Password ">
+                                                    <div class="mt-2 d-flex justify-content-start">
+                                                        <div class=""><input type="checkbox" onclick="myFunction()"></div>
+                                                        <div class=" ms-1">
+                                                            <p class="fs-6" style="font-weight:10px"> <small>Show Password</small> </p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row p-3">
+                                                <div class="text-center">
+                                                    <input type="submit" class="btn btn-primary" value="Update Data">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+            </section>
+            <!-- Section: Main chart -->
+        </div>
+    </main>
+
+
+    <%- include("../include/footer.ejs") %>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js "></script>
+        <script>
+            $(document).ready(function() {
+                $('#myTable').DataTable({
+                    "scrollX ": true
+                });
+            });
+        </script>
+</body>
+
+</html>

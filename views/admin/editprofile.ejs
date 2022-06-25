@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../include/head.ejs") %>
+</head>
+
+<body>
+    <%- include("../include/navbar.ejs") %>
+
+        <!--Main layout-->
+        <main style="margin-top: 58px">
+
+            <!--Section: Minimal statistics cards-->
+            <section class="container pt-5">
+
+                <div class="row vh-100 d-flex justify-content-center  align-items-center">
+                    <div class="col-md-6 col-10 shadow  mb-5  bg-body rounded p-5">
+                        <form action="/admin/updateprofiledata/<%= reqadmin.id %>" method="POST">
+
+                            <div class="p-3">
+                                <div class="row ">
+                                    <div class="text-center">
+                                        <h5>Profile Details</h5>
+
+                                    </div>
+                                </div>
+                                <div class="row  ">
+                                    <div class="">
+                                        <label for="fullname" class="form-label">Full Name</label>
+                                        <input required type="text" class="form-control" id="fullname" name="fullname" value="<%= reqadmin.fullname %>" required>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-around mt-2">
+                                    <div class="col-md-6">
+                                        <label for="dob" class="form-label">D.O.B.</label>
+                                        <input required type="date" class="form-control" id="birthday" name="dob" value="<%= reqadmin.dob %>" required>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="dob" class="form-label">Phone Number</label>
+                                        <input required type="text" class="form-control" id="phonenumber" name="phonenumber" value="<%= reqadmin.phonenumber %>" required>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-around mt-2">
+                                    <div class="col-md-6">
+                                        <label for="dob" class="form-label">Email</label>
+                                        <input required type="email" class="form-control" readonly id="email" name="email" value="<%= reqadmin.email %>" required>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="fullname" class="form-label">Password</label>
+                                        <input required type="password" class="form-control" id="password" name="password" value="<%= reqadmin.password %>" id="password" required>
+                                        <div class="mt-2 d-flex justify-content-start">
+                                            <div class=""><input type="checkbox" onclick="myFunction()"></div>
+                                            <div class=" ms-1">
+                                                <p class="fs-6" style="font-weight:10px"> <small>Show Password</small> </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-primary">Update </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </section>
+            <!--Section: Minimal statistics cards-->
+
+
+
+        </main>
+        <!-- MDB -->
+        <%- include("../include/footer.ejs") %>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
+
+
+</body>
+
+</html>

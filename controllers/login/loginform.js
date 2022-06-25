@@ -1,5 +1,6 @@
 exports.getloginpage = (req, res, next) => {
-    res.render('login/login', { loginMessage: false })
+    const errors = req.flash().error || [];
+    res.render('login/login', { loginMessage: false, errors })
 }
 exports.postloginpage = async(req, res, next) => {
     const userType = await req.body.usertype
@@ -9,12 +10,14 @@ exports.postloginpage = async(req, res, next) => {
         return
     }
     if (userType === "client") {
-        res.render("client/index")
+        const clientdetails = await req.user
+        console.log(req.user)
+        res.redirect('client/');
         return
     } else {
         const userdetails = await req.user
         console.log(userdetails)
-        res.render("employee/index", { userdetails })
+        res.redirect('team/')
         return
     }
 }

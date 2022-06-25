@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local')
 const db = require('../models')
 const RegisterNewTeamMember = db.registernewTeamMember
 const admindetails = db.admin
-const clientdetails = db.client
+const clientdetails = db.addnewclient
 
 
 exports.initializingPassport = (passport) => {
@@ -19,9 +19,9 @@ exports.initializingPassport = (passport) => {
             const user = await admindetails.findOne({ where: { email } });
 
             try {
-                if (!user) return done(null, false);
+                if (!user) return done(null, false, req.flash('error', 'Invalid Username or Password'));
 
-                if (user.password !== password) return done(null, false);
+                if (user.password !== password) return done(null, false, req.flash('error', 'Invalid Username or Password'));
                 return done(null, user)
 
             } catch (err) {
@@ -33,9 +33,9 @@ exports.initializingPassport = (passport) => {
         if (userType === "client") {
             const user = await clientdetails.findOne({ where: { email } });
             try {
-                if (!user) return done(null, false);
+                if (!user) return done(null, false, req.flash('error', 'Invalid Username or Password'));
 
-                if (user.password !== password) return done(null, false);
+                if (user.password !== password) return done(null, false, req.flash('error', 'Invalid Username or Password'));
                 return done(null, user)
 
             } catch (err) {
@@ -47,9 +47,9 @@ exports.initializingPassport = (passport) => {
             const user = await RegisterNewTeamMember.findOne({ where: { email } });
 
             try {
-                if (!user) return done(null, false);
+                if (!user) return done(null, false, req.flash('error', 'Invalid Username or Password'));
                 console.log("user found")
-                if (user.password !== password) return done(null, false);
+                if (user.password !== password) return done(null, false, req.flash('error', 'Invalid Username or Password'));
 
                 return done(null, user)
 
@@ -82,7 +82,7 @@ exports.initializingPassport = (passport) => {
         }
         if (userType === "client") {
             try {
-                const user = await client.findByPk(id);
+                const user = await clientdetails.findByPk(id);
                 done(null, user);
             } catch (err) {
                 done(err, false)
@@ -96,5 +96,5 @@ exports.isAuthenticated = (req, res, next) => {
 
     if (req.user) return next();
 
-    res.redirect("/login")
+    res.redirect("/")
 }
